@@ -86,8 +86,8 @@ The `keyword` column shows what was used to search for relevant tweets. Realisti
 
 However, this column can give use insight as to what kinds of tweets the keywords yield. The charts below show keywords with the highest and lowest yields of disaster tweets.
 
-<img src="./images/keywords_over_90_pct.png" alt="Class distribution by keyword" width=50% align="left">
-<img src="./images/keywords_under_10_pct.png" alt="Class distribution by keyword" width=50% align="right">
+<img src="./images/keywords_over_90_pct.png" alt="Class distribution by keyword" width=50%>
+<img src="./images/keywords_under_10_pct.png" alt="Class distribution by keyword" width=50%>
 
 **We find that there are a lot more keywords on the lower end. This is perhaps a sign that the newsroom should revise the search terms it's using to find these tweets.**
 
@@ -159,8 +159,8 @@ I was able to engineer more features from each tweet using seemingly arbitrary i
 
 **The density plots below show that the distribution of some of these features is clearly different when separated by class.**
 
-<img src="./images/meta_lemma_length-1.png" alt="mean lemma length distribution" width=50% align="left">
-<img src="./images/meta_sw-1.png" alt="stop word rate distribution" width=50% align="right"> .
+<img src="./images/meta_lemma_length-1.png" alt="mean lemma length distribution" width=50%>
+<img src="./images/meta_sw-1.png" alt="stop word rate distribution" width=50%> .
 
 ### Final dataset
 
@@ -221,7 +221,7 @@ Ultimately, I'm looking for the model with the best **recall score**. The busine
 * Precision: 0.73
 * F1: 0.69
 
-<img src="./images/models/confusion.png" alt="final model results" width=50% align="left">
+<img src="./images/models/confusion.png" alt="final model results" width=50%>
 
 #### Here's what these results mean about the final model.
 
