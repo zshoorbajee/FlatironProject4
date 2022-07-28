@@ -120,21 +120,22 @@ I used SpaCy to make count vectors of these features. Here are some examples of 
 
 #### Part-of-speech tagging (POS): <a name="pos"></a>
 **Example 1:** "*firefighters from connecticut are headed to california to fight wild fires*"
-<img src="./images/pos_ner/pos_firefighters.png" alt="POS example 1" width=90%>
+<img src="./images/pos_ner/pos_firefighters.png" alt="POS example 1">
+
 **Example 2:** "*watch this airport get swallowed up by a sandstorm in under a minute*"
-<img src="./images/pos_ner/pos_sandstorm.png" alt="POS example 2" width=90%>
+<img src="./images/pos_ner/pos_sandstorm.png" alt="POS example 2">
 
 #### Named-entity recognition (NER): <a name="ner"></a>
 **Example 1:**
 
 "*a brief violent storm swept through the chicago area sunday afternoon leading to one death and an evacuation of lollapalooza and more*"
 
-<img src="./images/pos_ner/ner_chicago.png" alt="NER example 1" width=70%>
+<img src="./images/pos_ner/ner_chicago.png" alt="NER example 1">
 
 **Example 2:**
 
 "*after a suicide bombing in suru that killed people turkey launches airstrikes against isil and kurdistan workers party camps in iraq*"
-<img src="./images/pos_ner/ner_turkey.png" alt="NER example 2" width=70%>
+<img src="./images/pos_ner/ner_turkey.png" alt="NER example 2">
 
 For the purposes of identifying disaster tweets, here are the [NER tags](https://towardsdatascience.com/explorations-in-named-entity-recognition-and-was-eleanor-roosevelt-right-671271117218) I am interested in:
 
@@ -160,7 +161,7 @@ I was able to engineer more features from each tweet using seemingly arbitrary i
 **The density plots below show that the distribution of some of these features is clearly different when separated by class.**
 
 <img src="./images/meta_lemma_length-1.png" alt="mean lemma length distribution" width=50%>
-<img src="./images/meta_sw-1.png" alt="stop word rate distribution" width=50%> .
+<img src="./images/meta_sw-1.png" alt="stop word rate distribution" width=50%>
 
 ### Final dataset
 
@@ -221,7 +222,7 @@ Ultimately, I'm looking for the model with the best **recall score**. The busine
 * Precision: 0.73
 * F1: 0.69
 
-<img src="./images/models/confusion.png" alt="final model results" width=50%>
+<img src="./images/models/confusion.png" alt="final model results" width=60%>
 
 #### Here's what these results mean about the final model.
 
