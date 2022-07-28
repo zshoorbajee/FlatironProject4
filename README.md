@@ -86,8 +86,9 @@ The `keyword` column shows what was used to search for relevant tweets. Realisti
 
 However, this column can give use insight as to what kinds of tweets the keywords yield. The charts below show keywords with the highest and lowest yields of disaster tweets.
 
-<img src="./images/keywords_over_90_pct.png" alt="Class distribution by keyword" width=50%>
-<img src="./images/keywords_under_10_pct.png" alt="Class distribution by keyword" width=50%>
+<img src="./images/keywords_90_10.png" alt="Class distribution by keyword">
+<!-- <img src="./images/keywords_over_90_pct.png" alt="Class distribution by keyword" width=50%>
+<img src="./images/keywords_under_10_pct.png" alt="Class distribution by keyword" width=50%> -->
 
 **We find that there are a lot more keywords on the lower end. This is perhaps a sign that the newsroom should revise the search terms it's using to find these tweets.**
 
@@ -126,15 +127,11 @@ I used SpaCy to make count vectors of these features. Here are some examples of 
 <img src="./images/pos_ner/pos_sandstorm.png" alt="POS example 2">
 
 #### Named-entity recognition (NER): <a name="ner"></a>
-**Example 1:**
-
-"*a brief violent storm swept through the chicago area sunday afternoon leading to one death and an evacuation of lollapalooza and more*"
+**Example 1:** "*a brief violent storm swept through the chicago area sunday afternoon leading to one death and an evacuation of lollapalooza and more*"
 
 <img src="./images/pos_ner/ner_chicago.png" alt="NER example 1">
 
-**Example 2:**
-
-"*after a suicide bombing in suru that killed people turkey launches airstrikes against isil and kurdistan workers party camps in iraq*"
+**Example 2:** "*after a suicide bombing in suru that killed people turkey launches airstrikes against isil and kurdistan workers party camps in iraq*"
 <img src="./images/pos_ner/ner_turkey.png" alt="NER example 2">
 
 For the purposes of identifying disaster tweets, here are the [NER tags](https://towardsdatascience.com/explorations-in-named-entity-recognition-and-was-eleanor-roosevelt-right-671271117218) I am interested in:
@@ -232,15 +229,23 @@ Ultimately, I'm looking for the model with the best **recall score**. The busine
 
 ## Conclusion <a name="conclude"></a>
 
-### Limitations and Future Work
-
-* The training of this model is limited by the tweets provided, as well as the search terms that were used to obtain them. Searching for things like "explosion," "fire," "suicide bomber," etc. seems like it should yield tweets about disasters. But there may be other search terms out there that the person who collected the data overlooked. That may help improve the model's performance.
-* The tweets in the provided dataset show if a tweet originally contained a URL, but not if it contained a picture or video. Having that as a feature might have improved the model's performance.
-* The purpose of this model is to provide *The Flatiron Post* with a feed-like tool that shows tweets related to disasters and crises. This model is just one piece of the pipeline. Other pieces include a tool that automatically requests tweets through Twitter's API, as well as a user-friendly interface.
 
 ### Recommendations
 * Discard search terms that don't yield many disaster tweets, such as "harm," "bloody," "screaming," "ruin," etc.
 * Reporters should still look at all tweets, but can also be given the model's probability that a tweet is about a disaster.
 * 
 
+### Limitations and Future Work
+
+* The training of this model is limited by the tweets provided, as well as the search terms that were used to obtain them. Searching for things like "explosion," "fire," "suicide bomber," etc. seems like it should yield tweets about disasters. But there may be other search terms out there that the person who collected the data overlooked. That may help improve the model's performance.
+* The tweets in the provided dataset show if a tweet originally contained a URL, but not if it contained a picture or video. Having that as a feature might have improved the model's performance.
+* The purpose of this model is to provide *The Flatiron Post* with a feed-like tool that shows tweets related to disasters and crises. This model is just one piece of the pipeline. Other pieces include a tool that automatically requests tweets through Twitter's API, as well as a user-friendly interface.
+
 ### References <a name="references"></a>
+- [Gunes Evitan on Kaggle -- NLP with Disaster Tweets - EDA, Cleaning and BERT](https://www.kaggle.com/code/gunesevitan/nlp-with-disaster-tweets-eda-cleaning-and-bert/notebook)
+- [Dataquest: Tutorial -- Text Classification in Python Using spaCy](https://www.dataquest.io/blog/tutorial-text-classification-in-python-using-spacy/)
+- [Analytics Vidhya -- A Guide to Feature Engineering in NLP](https://www.analyticsvidhya.com/blog/2021/04/a-guide-to-feature-engineering-in-nlp/)
+- [Towards Data Sceince -- Explorations in Named Entity Recognition, and was Eleanor Roosevelt right?](https://towardsdatascience.com/explorations-in-named-entity-recognition-and-was-eleanor-roosevelt-right-671271117218)
+- [Capital One -- Understanding TF-IDF for Machine Learning](https://www.capitalone.com/tech/machine-learning/understanding-tf-idf/)
+- [Machine Learning Mastery -- Dropout Regularization in Deep Learning Models With Keras](https://machinelearningmastery.com/dropout-regularization-deep-learning-models-keras/)
+- [Machine Learning Mastery -- How to use Learning Curves to Diagnose Machine Learning Model Performance](https://machinelearningmastery.com/learning-curves-for-diagnosing-machine-learning-model-performance/)
