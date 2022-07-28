@@ -44,6 +44,8 @@ The core type of data being used for this task is the text of tweets. This is **
 
 Working with natural langauge is messy; disaster and non-disaster tweets can use many of the same words, but context changes everything. The following two tweets both have the words "explosion" and "fire" in them. For any literate person, it's obvious which is about a real disaster and which is not.
 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">BREAKING: Small explosion and fire at the Hoover Dam; cause unknown <a href="https://t.co/Y2YfPVvGaH">pic.twitter.com/Y2YfPVvGaH</a></p>&mdash; BNO News (@BNONews) <a href="https://twitter.com/BNONews/status/1549444981408022528?ref_src=twsrc%5Etfw">July 19, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 [<img src="./images/example_tweet_1.png" alt="Tweet about a literal explosion" width=55%>](https://twitter.com/BNONews/status/1549444981408022528)
 <br>
 <br>
