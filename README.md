@@ -24,7 +24,7 @@ Advanced Machine Learning Topics
     * [Scoring](#scoring)
     * [Architecture](#architecture)
     * [Results](#results)
-* [Conclusion](#conclude)
+* [Conclusion](#conclusion)
 * [References](#references)
 
 ## Business Case<a name="biz_case"></a>
@@ -227,7 +227,7 @@ Ultimately, I'm looking for the model with the best **recall score**. The busine
 * **Recall:** The model will correctly classify 72% of *actual disaster tweets*. The other 28% are false negatives.
 * **Precision:** Of all the tweets the model puts in the disaster category, 73% of them will be correct. The other 27% are false positives.
 
-## Conclusion 
+## Conclusion <a name="conclusion"></a>
 
 
 ### Recommendations
