@@ -227,20 +227,27 @@ Ultimately, I'm looking for the model with the best **recall score**. The busine
 * **Recall:** The model will correctly classify 72% of *actual disaster tweets*. The other 28% are false negatives.
 * **Precision:** Of all the tweets the model puts in the disaster category, 73% of them will be correct. The other 27% are false positives.
 
-## Conclusion <a name="conclude"></a>
+## Conclusion 
 
 
 ### Recommendations
+* Because false negatives are still an issue, reporters should still look at all tweets, but can also be given the model's probability that a tweet is about a disaster.
 * Discard search terms that don't yield many disaster tweets, such as "harm," "bloody," "screaming," "ruin," etc.
-* Because false negeatives are still an issue, reporters should still look at all tweets, but can also be given the model's probability that a tweet is about a disaster.
+* Narrow the criteria for what constitutes a "disaster." This dataset sometimes puts the "disaster" label on long-term crises like droughts, and past disasters like the hiroshima bombing. Perhaps the *The Flatiron Post* should focus on so-called "kinetic events" and more unpredictable crises (bombings, earthquakes, crashes, etc.). This would require either relabeling the dataset or gathering new data.
 
 ### Limitations and Future Work
 
-* The training of this model is limited by the tweets provided, as well as the search terms that were used to obtain them. Searching for things like "explosion," "fire," "suicide bomber," etc. seems like it should yield tweets about disasters. But there may be other search terms out there that the person who collected the data overlooked. That may help improve the model's performance.
+* The training of this model is limited by the tweets provided, as well as the search terms that were used to obtain them. Searching for things like "explosion," "fire," "suicide bomber," etc. seems like it should yield tweets about disasters. But there may be other tweets without blatant keywords. Having access to a less biased sample of tweets might yield better results.
 * The tweets in the provided dataset show if a tweet originally contained a URL, but not if it contained a picture or video. Having that as a feature might have improved the model's performance.
 * The purpose of this model is to provide *The Flatiron Post* with a feed-like tool that shows tweets related to disasters and crises. This model is just one piece of the pipeline. Other pieces include a tool that automatically requests tweets through Twitter's API, as well as a user-friendly interface.
 
-### References <a name="references"></a>
+#### For more information
+
+You can see the full analysis in this [Jupyter Notebook](https://github.com/zshoorbajee/FlatironProject4/blob/main/index.ipynb). A non-technnical presentation about the findings can be found [here](https://github.com/zshoorbajee/FlatironProject4/blob/main/Presentation.pdf).
+
+For any questions or feedback, you can contact me [here](https://zaid.fyi/contact/).
+
+#### References <a name="references"></a>
 - [Gunes Evitan on Kaggle -- NLP with Disaster Tweets - EDA, Cleaning and BERT](https://www.kaggle.com/code/gunesevitan/nlp-with-disaster-tweets-eda-cleaning-and-bert/notebook)
 - [Dataquest: Tutorial -- Text Classification in Python Using spaCy](https://www.dataquest.io/blog/tutorial-text-classification-in-python-using-spacy/)
 - [Analytics Vidhya -- A Guide to Feature Engineering in NLP](https://www.analyticsvidhya.com/blog/2021/04/a-guide-to-feature-engineering-in-nlp/)
