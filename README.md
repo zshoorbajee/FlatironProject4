@@ -36,7 +36,7 @@ The *Post* wants to tap into Twitter as a resource in order to detect such disas
 The task of the data scientist is to use natural language processing (NLP) and machine learning in order to systematically tell if a tweet is about a real disaster or not. Such tweets can then theoretically be presented to the newsroom in a separate feed. Reporters can then choose to pursue that story or not.
 ___
 
-## Data Undersatnding <a name="data_understanding"></a>
+## Data Understanding <a name="data_understanding"></a>
 
 ### NLP <a name="nlp"></a>
 
