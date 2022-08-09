@@ -11,7 +11,7 @@ Advanced Machine Learning Topics
 <img src="./images/moshed_twitter_tiles.jpg" alt="Twitter logo art.">
 
 #### Contents:
-* [Business Case](#biz_case)
+* [Business Understanding](#biz_understanding)
 * [Data Understanding](#data_understanding)
     * [NLP](#nlp)
     * [Dataset](#dataset)
@@ -27,7 +27,7 @@ Advanced Machine Learning Topics
 * [Conclusion](#conclusion)
 * [References](#references)
 
-## Business Case<a name="biz_case"></a>
+## Business Understanding<a name="biz_understanding"></a>
 
 An international news outlet, *The Flatiron Post*, wants to be able to report on stories of crises and natural disasters in a prompt manner. News about plane crashes, hurricanes, earthquakes, terrorist threats, and other topics occurs without warning. Being late to the story can mean not only losing to the competition, but also leaving your audience in the dark while speculation runs amok. 
 
@@ -87,8 +87,6 @@ The `keyword` column shows what was used to search for relevant tweets. Realisti
 However, this column can give use insight as to what kinds of tweets the keywords yield. The charts below show keywords with the highest and lowest yields of disaster tweets.
 
 <img src="./images/keywords_90_10.png" alt="Class distribution by keyword">
-<!-- <img src="./images/keywords_over_90_pct.png" alt="Class distribution by keyword" width=50%>
-<img src="./images/keywords_under_10_pct.png" alt="Class distribution by keyword" width=50%> -->
 
 **We find that there are a lot more keywords on the lower end. This is perhaps a sign that the newsroom should revise the search terms it's using to find these tweets.**
 
@@ -141,6 +139,9 @@ For the purposes of identifying disaster tweets, here are the [NER tags](https:/
 * **NORP**: Nationalities or religious or political groups.
 * **ORG**: Companies, agencies, institutions, etc.
 
+**NER on `location` column:**
+
+In the raw dataset, the `location` column is not very useful. The values are user-generated and many of them are nonesense. To extract some value, I used NER to make a binary variable indicating if each `location` value is recognized with a "GPE" tag.
 
 ### Meta-features <a name="meta_features"></a>
 I was able to engineer more features from each tweet using seemingly arbitrary information from it. Here are the featurs I engineered:
@@ -175,10 +176,10 @@ To make models that can predict if a tweet is in class 0 or 1, I built neural ne
 
 The data was split into train, validation, and test sets. The models were trained on the training set and the final model was chosen based on performance on the validation set. The final model was given a score based on its performance on the test set.
 
-I made a simple baseline model and five additional models, experimenting with number layers, number of nodes, L2 regularization, and dropout regularization. The models were configured to run for 150 epochs, but early stopping was implemented if validation loss didn't improve in 20 epochs.
+I made a simple baseline model and five additional models, experimenting with number of layers, number of nodes, L2 regularization, and dropout regularization. The models were configured to run for 150 epochs, but early stopping was implemented if validation loss didn't improve in 20 epochs.
 
 ### Scoring and Evaluation: <a name="scoring"></a>
-I monitored several metrics for each model (loss, accuracy, precision, recall, F1, AUROC).
+I monitored several metrics for each model (loss, accuracy, precision, recall, F1, ROC-AUC).
 
 Ultimately, I'm looking for the model with the best **recall score**. The business case is that a news outlet wants to make sure it doesn't miss important crises that should be reported on. Therefore, it's important to know what level of false negatives the model produces, which recall aptly measures.
 
@@ -214,10 +215,17 @@ Ultimately, I'm looking for the model with the best **recall score**. The busine
 
 #### Test results <a name="test_results"></a>
 
-* Accuracy: 0.78
+||Test Results|
+|:--------|-----:|
+Accuracy|0.78
+Recall|0.72
+Precision|0.73
+F1|0.69
+
+<!-- * Accuracy: 0.78
 * Recall: 0.72
 * Precision: 0.73
-* F1: 0.69
+* F1: 0.69 -->
 
 <img src="./images/models/confusion.png" alt="final model results" width=60%>
 
@@ -229,8 +237,8 @@ Ultimately, I'm looking for the model with the best **recall score**. The busine
 
 ## Conclusion <a name="conclusion"></a>
 
-
 ### Recommendations
+
 * Because false negatives are still an issue, reporters should still look at all tweets, but can also be given the model's probability that a tweet is about a disaster.
 * Discard search terms that don't yield many disaster tweets, such as "harm," "bloody," "screaming," "ruin," etc.
 * Narrow the criteria for what constitutes a "disaster." This dataset sometimes puts the "disaster" label on long-term crises like droughts, and past disasters like the hiroshima bombing. Perhaps the *The Flatiron Post* should focus on so-called "kinetic events" and more unpredictable crises (bombings, earthquakes, crashes, etc.). This would require either relabeling the dataset or gathering new data.
@@ -253,5 +261,6 @@ For any questions or feedback, you can contact me [here](https://zaid.fyi/contac
 - [Analytics Vidhya -- A Guide to Feature Engineering in NLP](https://www.analyticsvidhya.com/blog/2021/04/a-guide-to-feature-engineering-in-nlp/)
 - [Towards Data Sceince -- Explorations in Named Entity Recognition, and was Eleanor Roosevelt right?](https://towardsdatascience.com/explorations-in-named-entity-recognition-and-was-eleanor-roosevelt-right-671271117218)
 - [Capital One -- Understanding TF-IDF for Machine Learning](https://www.capitalone.com/tech/machine-learning/understanding-tf-idf/)
+- [Aakash Goel -- How to add function (Get F1-score) in Keras metrics and record F1 value after each epoch?](https://aakashgoel12.medium.com/how-to-add-user-defined-function-get-f1-score-in-keras-metrics-3013f979ce0d)
 - [Machine Learning Mastery -- Dropout Regularization in Deep Learning Models With Keras](https://machinelearningmastery.com/dropout-regularization-deep-learning-models-keras/)
 - [Machine Learning Mastery -- How to use Learning Curves to Diagnose Machine Learning Model Performance](https://machinelearningmastery.com/learning-curves-for-diagnosing-machine-learning-model-performance/)
